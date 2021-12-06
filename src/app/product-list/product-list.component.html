@@ -1,0 +1,25 @@
+<p class="p-m-t" *ngIf="productos.length === 0">
+  no se han agregado productos
+</p>
+
+<p class="p-m-t" *ngIf="productos.length != 0">
+  Productos Creados
+</p>
+
+<mat-card *ngFor="let item of productos" >
+  <mat-card-title>{{item.nombre}}</mat-card-title>
+  <mat-card-subtitle>$ {{item.precio}}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{item.descripcion}}</p>
+
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-button color="primary" [routerLink]="['/edit', item.id]">Editar</button>
+    <button mat-button color="warn" (click)="onDelete(item.id)">Eliminar</button>
+
+
+  </mat-card-actions>
+
+</mat-card>
+
